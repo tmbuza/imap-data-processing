@@ -50,6 +50,8 @@ library(schtools)
 
 ```
 
+<div id="inprogress"><h2> - - - Work In Progress! - - - </h2> </div>
+
 > We continuously review and integrate the old iMAP [@TMBuza2019] with Snakemake and GitHub actions to facilitate reproducible microbiome data analysis!
 
 <br><hr width=100%><br>
@@ -96,7 +98,7 @@ library(schtools)
 
 # Appendix {-}
 
-## Mothur reference databases
+<!-- ## Mothur reference databases
 <ol>
   <li>Mothur-based SILVA reference files [@MothurSILVA]</li>.
   <li>Mothur-based RDP reference files [@MothurRDP]. Note: The RDP database is to classify 16S rRNA gene sequences to the genus level.</li>
@@ -116,7 +118,7 @@ library(schtools)
     <li>Too many uniques representative sequences probably caused by lack of overlapping.</li>
     <li>No enough computer power which suggest a use of HPC or Cluster.</li>
   </ul>
-</ol>
+</ol> -->
 
 <br><br><hr width=50%><br>
 
