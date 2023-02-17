@@ -17,8 +17,8 @@ link-citations: true
 mainfont:
 biblio-style: apalike
 email_address: "tmbuza@complexdatainsights.com"
-github_repo: "https://github.com/tmbuza/imap-data-transformation"
-related_website: "https://complexdatainsights.com"
+github_repo: "https://github.com/tmbuza/imap-data-preprocessing"
+related_website: "https://complexdatainsights.com/microbiome-analysis/imap-part3"
 description: |
   This repo provides integrated and highly curated solutions for reproducible research.
 ---
@@ -50,7 +50,8 @@ library(schtools)
 
 ```
 
-<div id="inprogress"><h2> - - - Work In Progress! - - - </h2> </div>
+
+<br><div id="inprogress"><h2> --- Work In Progress! --- </h2> </div><br><br>
 
 > We continuously review and integrate the old iMAP [@TMBuza2019] with Snakemake and GitHub actions to facilitate reproducible microbiome data analysis!
 
@@ -91,34 +92,27 @@ library(schtools)
 
 <br><hr width=100%><br>
 
-# Preliminary OTU Analysis using Mothur
-> First initiate `mothur` then run the following commands on mothur cli to generate downstream input data.
-
 
 
 # Appendix {-}
 
-<!-- ## Mothur reference databases
-<ol>
-  <li>Mothur-based SILVA reference files [@MothurSILVA]</li>.
-  <li>Mothur-based RDP reference files [@MothurRDP]. Note: The RDP database is to classify 16S rRNA gene sequences to the genus level.</li>
-  <li>ZymoBIOMICS Microbial Community Standard (Cat # D6306)[@Zymo2023]. The ZymoBIOMICS Microbial Community DNA Standard is designed to assess bias, errors and other artifacts after the step of nucleic acid purification.</li>
-</ol>
-
-<br><br>
-
 ## Troubleshooting (in progress)
 <ol>
-  <li>Are chimeras removed by default in newer versions?</li>
-    <ul>Yes. Chimeras are removed by default. You can still run the remove.seqs command without error, but it is not necessary. Remove chimera sequence explained [here](https://forum.mothur.org/t/chimera-vsearch-removes-groups-and-generates-empty-files/21342/4)</ul>.
-  <li>Mothur dist.seqs taking too long.</li>
+  <li>?</li>
   <ul>
-    <li>Merged reads are too long, probably over 300pb.</li>
-    <li>Reads not overlaping when merging the paired reads.</li>
-    <li>Too many uniques representative sequences probably caused by lack of overlapping.</li>
-    <li>No enough computer power which suggest a use of HPC or Cluster.</li>
+    <li></li>
   </ul>
-</ol> -->
+
+  <li>?</li>
+  <ul>
+    <li></li>
+  </ul>
+
+  <li>?</li>
+  <ul>
+    <li></li>
+  </ul>
+</ol>
 
 <br><br><hr width=50%><br>
 
@@ -132,5 +126,6 @@ library(schtools)
 Last updated on `r format(Sys.time(), '%B %d, %Y')`. <br><br>
 The snakemake workflow mentioned in this report is continuously being reviewed, integrated, tested and compiled by [`r rmarkdown::metadata$author`](mailto:`r rmarkdown::metadata$email_address`).  
 Github_Repo: `r rmarkdown::metadata$github_repo`.  
+Related Website: `r rmarkdown::metadata$related_website`.  
 
 </div><br><br>
