@@ -1,0 +1,134 @@
+---
+title:  "<big><u>IMAP-PART3</u></big><br><br>Microbiome Data Preprocessing<br><br>"
+subtitle: |
+  | ![](images/analysis.png)<br>
+  | Integrated Microbiome Analysis Pipelines<br>( IMAP-PART3 ) <br><br><small>[Latest GitHub-Repo](https://github.com/tmbuza/imap-bioinformatics/)</small>
+date: |
+  |  Updated on `r Sys.Date()`
+author: Teresia Mrema-Buza
+output: 
+  html_document: 
+    css: css/styles.css
+csl: "library/apa.csl"
+bibliography:
+- library/references.bib
+- library/imap.bib
+link-citations: true
+mainfont:
+biblio-style: apalike
+email_address: "tmbuza@complexdatainsights.com"
+github_repo: "https://github.com/tmbuza/imap-data-transformation"
+related_website: "https://complexdatainsights.com"
+description: |
+  This repo provides integrated and highly curated solutions for reproducible research.
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  comment = NA,
+  fig.path='./figures/',
+  fig.show='asis',
+  dev = 'png',
+  fig.align='center',
+  out.width = "70%",
+  fig.width = 7,
+  fig.asp = 0.7,
+  fig.show = "asis"
+)
+
+library(tidyverse, suppressPackageStartupMessages())
+library(schtools)
+
+```
+
+> We continuously review and integrate the old iMAP [@TMBuza2019] with Snakemake and GitHub actions to facilitate reproducible microbiome data analysis!
+
+<br><hr width=100%><br>
+
+# General Overview
+
+- We use the snakemake workflow management system [@Koster2021; @Snakemake2023] for:
+  - Maintaining reproducibility in technical validation and regeneration of results.
+  - Creating scalable data analysis scaled to server, grid or cloud environment.
+  - Fostering sustainable improvement of the microbiome data analysis.
+- We also review existing workflows [@Snakemake2023; @Mothursnakemake] to help in gaining a better insights for improving microbiome data analysis.
+- We break any complex workflows into small contiguous but related chunks where each major step form a separate executable snakemake rule.
+
+<br>
+
+> We envision to keep fostering on continuous integration and development of highly reproducible workflows.
+
+<!-- ![](images/cicd.png) -->
+<img src="images/cicd.png">
+
+<br>
+
+## Snakemake rule-graph
+- Typically the snakemake workflow is defined by specifying rules.
+- The rule-graph graphically shows the input-output files. 
+- The snakemake is capable of automatically determining the dependencies between the rules and creates a dot-like DAG (Directed Acyclic Graph).
+
+<br><br>
+<img src="dags/rulegraph.svg">IMAP-PART3: Snakemake workflow
+
+<br><br>
+
+## Screenshot of interactive snakemake report {#smkreport}
+> The snakemake html report can be viewed using any compartible browser, such as chrome to explore more on the workflow and the associated statistics. You will be able to close the left bar to get a better view of the dispaly.
+
+<img src="images/smkreport/screenshot.png">
+
+<br><hr width=100%><br>
+
+# Preliminary OTU Analysis using Mothur
+> First initiate `mothur` then run the following commands on mothur cli to generate downstream input data.
+
+
+
+# Appendix {-}
+
+## Mothur reference databases
+<ol>
+  <li>Mothur-based SILVA reference files [@MothurSILVA]</li>.
+  <li>Mothur-based RDP reference files [@MothurRDP]. Note: The RDP database is to classify 16S rRNA gene sequences to the genus level.</li>
+  <li>ZymoBIOMICS Microbial Community Standard (Cat # D6306)[@Zymo2023]. The ZymoBIOMICS Microbial Community DNA Standard is designed to assess bias, errors and other artifacts after the step of nucleic acid purification.</li>
+</ol>
+
+<br><br>
+
+## Troubleshooting (in progress)
+<ol>
+  <li>Are chimeras removed by default in newer versions?</li>
+    <ul>Yes. Chimeras are removed by default. You can still run the remove.seqs command without error, but it is not necessary. Remove chimera sequence explained [here](https://forum.mothur.org/t/chimera-vsearch-removes-groups-and-generates-empty-files/21342/4)</ul>.
+  <li>Mothur dist.seqs taking too long.</li>
+  <ul>
+    <li>Merged reads are too long, probably over 300pb.</li>
+    <li>Reads not overlaping when merging the paired reads.</li>
+    <li>Too many uniques representative sequences probably caused by lack of overlapping.</li>
+    <li>No enough computer power which suggest a use of HPC or Cluster.</li>
+  </ul>
+</ol>
+
+<br><br><hr width=50%><br>
+
+## References
+::: {#refs}
+:::
+
+<br><br><hr width=100%><br>
+
+<div id="footer">
+Last updated on `r format(Sys.time(), '%B %d, %Y')`. <br><br>
+The snakemake workflow mentioned in this report is continuously being reviewed, integrated, tested and compiled by [`r rmarkdown::metadata$author`](mailto:`r rmarkdown::metadata$email_address`).  
+Github_Repo: `r rmarkdown::metadata$github_repo`.  
+
+</div><br><br>
