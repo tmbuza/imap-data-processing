@@ -2,7 +2,7 @@
 title:  "<big><u>IMAP-PART3</u></big><br><br>Microbiome Data Preprocessing<br><br>"
 subtitle: |
   | ![](images/analysis.png)<br>
-  | Integrated Microbiome Analysis Pipelines<br>( IMAP-PART3 ) <br><br><small>[Latest GitHub-Repo](https://github.com/tmbuza/imap-bioinformatics/)</small>
+  | Integrated Microbiome Analysis Pipelines<br>( IMAP-PART3 ) <br><br><small>[Latest GitHub-Repo](https://github.com/tmbuza/imap-data-preprocessing/)</small>
 date: |
   |  Updated on `r Sys.Date()`
 author: Teresia Mrema-Buza
