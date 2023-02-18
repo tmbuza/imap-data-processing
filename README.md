@@ -5,7 +5,8 @@
 
 <br> 
 
-## :tada: IMAP Repos integrated with Snakemake and GitHub Actions!
+## :tada: Related work
+> Here we show the IMAP Repos integrated with Snakemake and GitHub Actions!
 
 | Repo | Description | Summary |
 |-------------------------|---------------------------------------------------|-----------------|
