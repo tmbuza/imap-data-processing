@@ -3,53 +3,40 @@ from snakemake.utils import min_version
 min_version("6.10.0")
 
 # Configuration file containing all user-specified settings
-
 configfile: "config/config.yml"
+
+report: "report/workflow.rst"
 
 
 include: "rules/qiime2_composite.smk"
+include: "rules/mothur_composite.smk"
+include: "rules/phyloseq_objects.smk"
+include: "rules/plot_merged_taxa.smk"
+include: "rules/rmd_report.smk"
 
 rule all:
     input:
-        "data/qiime2_composite.csv",
+        "data/mothur_phyloseq_objects.rda",
+        "data/qiime2_phyloseq_objects.rda",
+
+        "figures/taxon_barplot.svg",
+        "images/smkreport/screenshot.png",
+        "report.html",
         "index.html",
-
-
-# Get dot rule graphs
-rule dot_rulegraph:
-	output:
-		"dags/rulegraph.svg",
-		"dags/rulegraph.png",
-	shell:
-		"bash workflow/scripts/rules_dag.sh"
-
-# Get project tree
-rule project_tree:
-    output:
-        tree="results/project_tree.txt"
-    shell:
-        "bash workflow/scripts/tree.sh"
-
-# Get smk html report
-rule snakemake_html_report:
-	output:
-		"report.html",
-		"images/smkreport/screenshot.png",
-	shell:
-		"bash workflow/scripts/smk_html_report.sh"
-
-rule deploy_to_github_pages:
-    input:
-        script="workflow/scripts/render.R",
-        rmd="index.Rmd",
-        rulegraph="dags/rulegraph.svg",
-        tree="results/project_tree.txt",
-        html2png="images/smkreport/screenshot.png",
-    output:
-        doc="index.html",
-    shell:
-        """
-        R -e "library(rmarkdown); render('{input.rmd}')"
-        """
+        # "data/qiime2_composite.csv",
+        # "data/qiime2_tidy_taxonomy.csv",
+        # "data/qiime2_tidy_features.csv",
+        # "data/qiime2_tidy_metadata.csv",
+        # "data/qiime2_taxonomy.tsv",
+        # "data/qiime2_features.tsv",
+        # "data/qiime2_metadata.tsv",
+        
+        # "data/mothur_composite.csv",
+        # "data/mothur_tidy_taxonomy.csv",
+        # "data/mothur_tidy_otutable.csv",
+        # "data/mothur_tidy_metadata.csv",
+        # "data/mothur_taxonomy.tsv",
+        # "data/mothur_otutable.tsv",
+        # "data/mothur_metadata.tsv",
 
 
