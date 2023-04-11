@@ -27,6 +27,7 @@ rule import_qiime2_taxonomy:
     shell:
         "bash workflow/scripts/import_qiime2_taxonomy.sh"
 
+
 # qiime2_metadata
 rule process_qiime2_tidy_metadata:
     input:

@@ -1,6 +1,6 @@
 
 # Get dot rule graphs
-rule dot_rules_graph:
+rule get_dot_rulegraph:
 	output:
 		"dags/rulegraph.svg",
 	conda:
@@ -37,7 +37,7 @@ rule deploy_to_github_pages:
 	input:
 		dag="dags/rulegraph.svg",
 		tree="results/project_tree.txt",
-		smkpng="images/smkreport/screenshot.png",
+		# smkpng="images/smkreport/screenshot.png",
 	output:
 		doc="index.html",
 	conda:

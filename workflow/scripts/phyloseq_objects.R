@@ -70,4 +70,3 @@ save(ps_metadata, ps_otutable, ps_taxonomy, ps_phylotree, ps_raw, ps_rel,  file 
 
 # load("data/phyloseq_objects.rda", verbose = TRUE)
 
-
