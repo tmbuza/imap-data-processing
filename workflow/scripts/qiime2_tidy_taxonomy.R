@@ -1,7 +1,7 @@
 library(tidyverse, suppressPackageStartupMessages())
 
 # QIIME2 taxonomy
-qiime2_tidy_taxonomy <- read_tsv("data/qiime2_taxonomy.tsv", show_col_types=FALSE) %>% 
+qiime2_tidy_taxonomy <- read_tsv("data/qiime2/qiime2_taxonomy.tsv", show_col_types=FALSE) %>% 
   rename(feature="Feature ID") %>% 
   distinct() %>%
   mutate_if(is.numeric, ~replace(., is.na(.), 0)) %>%
@@ -20,5 +20,5 @@ qiime2_tidy_taxonomy <- read_tsv("data/qiime2_taxonomy.tsv", show_col_types=FALS
   mutate(Taxon = str_replace_all(Taxon, "\\w__", "")) %>% 
   separate(Taxon, into = c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus"), sep = ";")
 
-write_csv(qiime2_tidy_taxonomy, "data/qiime2_tidy_taxonomy.csv")
+write_csv(qiime2_tidy_taxonomy, "data/qiime2/qiime2_tidy_taxonomy.csv")
 

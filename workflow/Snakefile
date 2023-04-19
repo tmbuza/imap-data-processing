@@ -8,28 +8,31 @@ configfile: "config/config.yml"
 report: "report/workflow.rst"
 
 
+include: "rules/import_qiime2_data.smk"
 include: "rules/qiime2_composite.smk"
-include: "rules/mothur_composite.smk"
-include: "rules/phyloseq_objects.smk"
-include: "rules/plot_merged_taxa.smk"
+include: "rules/qiime2_phyloseq_objects.smk"
+
 include: "rules/rmd_report.smk"
 
 rule all:
     input:
-        "data/mothur_phyloseq_objects.rda",
-        "data/qiime2_phyloseq_objects.rda",
+        "index.html",    
+        "data/qiime2/qiime2_sample_metadata.tsv",
+        "data/qiime2/qiime2_taxonomy.tsv",
+        "data/qiime2/qiime2_features.tsv",
 
-        "figures/taxon_barplot.svg",
-        "images/smkreport/screenshot.png",
-        "report.html",
-        "index.html",
-        # "data/qiime2_composite.csv",
-        # "data/qiime2_tidy_taxonomy.csv",
-        # "data/qiime2_tidy_features.csv",
-        # "data/qiime2_tidy_metadata.csv",
-        # "data/qiime2_taxonomy.tsv",
-        # "data/qiime2_features.tsv",
-        # "data/qiime2_metadata.tsv",
+        "data/qiime2/qiime2_tidy_taxonomy.csv",
+        "data/qiime2/qiime2_tidy_features.csv",
+        "data/qiime2/qiime2_tidy_metadata.csv",
+        "data/qiime2/qiime2_composite.csv",
+
+        "data/qiime2/qiime2_phyloseq_objects.rda",
+
+        # "figures/taxon_barplot.svg",
+        # "images/smkreport/screenshot.png",
+        # "report.html",
+
+
         
         # "data/mothur_composite.csv",
         # "data/mothur_tidy_taxonomy.csv",

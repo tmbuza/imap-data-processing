@@ -1,5 +1,5 @@
-INPUTDIR="../imap-bioinformatics-qiime2/qiime2_process/transformed/taxonomy.tsv"
-OUTDIR="data"
+INPUTDIR="../imap-bioinformatics-qiime2/qiime2_process/export/taxonomy.tsv"
+OUTDIR="data/qiime2"
 
 echo PROGRESS: Importing QIIME2 taxonomy
 
