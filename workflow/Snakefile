@@ -7,39 +7,44 @@ configfile: "config/config.yml"
 
 report: "report/workflow.rst"
 
-
 include: "rules/import_qiime2_data.smk"
 include: "rules/qiime2_composite.smk"
 include: "rules/qiime2_phyloseq_objects.smk"
 
+include: "rules/import_mothur_data.smk"
+include: "rules/mothur_composite.smk"
+include: "rules/mothur_phyloseq_objects.smk"
+
+include: "rules/import_external_ps_objects.smk"
+
 include: "rules/rmd_report.smk"
+
+
+
 
 rule all:
     input:
-        "index.html",    
-        "data/qiime2/qiime2_sample_metadata.tsv",
-        "data/qiime2/qiime2_taxonomy.tsv",
-        "data/qiime2/qiime2_features.tsv",
+        "index.html",
+        # "data/qiime2/qiime2_sample_metadata.tsv",
+        # "data/qiime2/qiime2_features.tsv",
+        # "data/qiime2/qiime2_taxonomy.tsv",
 
-        "data/qiime2/qiime2_tidy_taxonomy.csv",
-        "data/qiime2/qiime2_tidy_features.csv",
-        "data/qiime2/qiime2_tidy_metadata.csv",
+
+        # "data/qiime2/qiime2_tidy_taxonomy.csv",
+        # "data/qiime2/qiime2_tidy_features.csv",
+        # "data/qiime2/qiime2_tidy_metadata.csv",
         "data/qiime2/qiime2_composite.csv",
-
         "data/qiime2/qiime2_phyloseq_objects.rda",
 
-        # "figures/taxon_barplot.svg",
-        # "images/smkreport/screenshot.png",
-        # "report.html",
+        # "data/mothur/mothur_sample_metadata.tsv",
+        # "data/mothur/mothur_otutable.tsv",
+        # "data/mothur/mothur_taxonomy.tsv",
 
+        # "data/mothur/mothur_tidy_taxonomy.csv",
+        # "data/mothur/mothur_tidy_otutable.csv",
+        # "data/mothur/mothur_tidy_metadata.csv",
+        "data/mothur/mothur_composite.csv",
+        "data/mothur/mothur_phyloseq_objects.rda",
 
-        
-        # "data/mothur_composite.csv",
-        # "data/mothur_tidy_taxonomy.csv",
-        # "data/mothur_tidy_otutable.csv",
-        # "data/mothur_tidy_metadata.csv",
-        # "data/mothur_taxonomy.tsv",
-        # "data/mothur_otutable.tsv",
-        # "data/mothur_metadata.tsv",
-
-
+        # "data/external/external_phyloseq_objects.rda",
+        "data/external/example.rda",

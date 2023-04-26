@@ -1,9 +1,11 @@
 library(tidyverse, suppressPackageStartupMessages())
 
 # MOTHUR  metadata
-mothur_tidy_metadata <- read_tsv("data/mothur_metadata.tsv", 
-                            show_col_types = FALSE) %>% 
+mothur_tidy_metadata <- read_tsv("data/mothur/mothur_sample_metadata.tsv", show_col_types = FALSE) %>% 
   rename_all(tolower) %>% 
-  dplyr::filter(!grepl("Mock*", sample_id))
+  dplyr::filter(!grepl("Mock*", group))
 
-write_csv(mothur_tidy_metadata, "data/mothur_tidy_metadata.csv")
+mothur_tidy_metadata %>% 
+  rename(sample_id = 1) %>% 
+  select(1, 2) %>% 
+write_csv("data/mothur/mothur_tidy_metadata.csv")

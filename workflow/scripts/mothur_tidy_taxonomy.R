@@ -1,7 +1,7 @@
 library(tidyverse, suppressPackageStartupMessages())
 
 # MOTHUR taxonomy
-mothur_tidy_taxonomy <- read_tsv("data/mothur_taxonomy.tsv", show_col_types=FALSE) %>% 
+mothur_tidy_taxonomy <- read_tsv("data/mothur/mothur_taxonomy.tsv", show_col_types=FALSE) %>% 
   rename_all(tolower) %>%
   select(otu, taxonomy) %>%
   mutate(taxonomy = str_replace_all(taxonomy, "\\(\\d+\\)", ""),
@@ -14,5 +14,5 @@ mothur_tidy_taxonomy <- read_tsv("data/mothur_taxonomy.tsv", show_col_types=FALS
   # relocate(pretty_otu, .after = "otu") %>% 
   separate(taxonomy, into = c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus"), sep = ";")
 
-write_csv(mothur_tidy_taxonomy, "data/mothur_tidy_taxonomy.csv")
+write_csv(mothur_tidy_taxonomy, "data/mothur/mothur_tidy_taxonomy.csv")
 
